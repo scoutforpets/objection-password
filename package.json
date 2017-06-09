@@ -1,0 +1,31 @@
+{
+  "name": "objection-bcrypt",
+  "version": "1.0.0",
+  "description": "Automatic bcrypt hashing for Objection.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scoutforpets/objection-bcrypt.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scoutforpets/objection-bcrypt/issues"
+  },
+  "homepage": "https://github.com/scoutforpets/objection-bcrypt#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "sqlite3": "^3.1.8"
+  },
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "eslint": "^3.19.0",
+    "eslint-config-hapi": "^10.0.0",
+    "eslint-plugin-hapi": "^4.0.0",
+    "knex": "^0.13.0",
+    "objection": "^0.8.2"
+  }
+}
