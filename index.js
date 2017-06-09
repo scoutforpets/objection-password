@@ -7,14 +7,14 @@ const RECOMMENDED_ROUNDS = 12;
 
 module.exports = (options) => {
 
-  // Provide good defaults for the options if possible.
+    // Provide good defaults for the options if possible.
     options = Object.assign({
         passwordField: 'password',
         rounds: RECOMMENDED_ROUNDS
     }, options);
 
-  // Return the mixin. If your plugin doesn't take options, you can simply export
-  // the mixin. The factory function is not needed.
+    // Return the mixin. If your plugin doesn't take options, you can simply export
+    // the mixin. The factory function is not needed.
     return (Model) => {
 
         class BcryptModel extends Model {
@@ -24,13 +24,8 @@ module.exports = (options) => {
                 const maybePromise = super.$beforeInsert(context);
 
                 return Promise.resolve(maybePromise).then(() => {
-
                     // hash the password
-                    return this.constructor.generateHash(this[options.passwordField], options.rounds).then((hash) => {
-                        if (hash) {
-                            this[options.passwordField] = hash;
-                        }
-                    });
+                    return this.generateHash();
                 });
             }
 
@@ -39,36 +34,44 @@ module.exports = (options) => {
                 const maybePromise = super.$beforeUpdate(context);
 
                 return Promise.resolve(maybePromise).then(() => {
-
                     // hash the password
-                    return this.constructor.generateHash(this[options.passwordField], options.rounds, true).then((hash) => {
-                        if (hash) {
-                            this[options.passwordField] = hash;
-                        }
-                    });
+                    return this.generateHash();
                 });
+            }
+
+            /**
+             * Compares a password to a Bcrypt hash
+             * @param  {[type]} password [description]
+             * @return {[type]}          [description]
+             */
+            verifyPassword(password) {
+                return Bcrypt.compare(password, this[options.passwordField]);
             }
 
             /**
              * Generates a Bcrypt hash
              * @param  {String}  password         the password...
              * @param  {Number}  rounds           the number of rounds to use when hashing (default = 12)
-             * @param  {Boolean} [isUpdate=false] determines whether to check if bcrypt hash is being re-hashed
              * @return {String}                   returns the hash or null
              */
-            static generateHash(password, rounds, isUpdate = false) {
+            generateHash() {
+
+                const password = this[options.passwordField];
 
                 if (password) {
 
-                    if (isUpdate && this.detectBcrypt(password)) {
+                    if (this.constructor.detectBcrypt(password)) {
                         throw new Error('Bcrypt tried to hash another bcrypt hash');
                     }
 
-                    return Bcrypt.hash(password, options.rounds);
+                    return Bcrypt.hash(password, options.rounds).then((hash) => {
+                        this[options.passwordField] = hash;
+                    });
                 }
 
                 return Promise.resolve();
             }
+
 
             /**
              * Detect rehashing for avoiding undesired effects
