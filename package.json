@@ -1,6 +1,6 @@
 {
   "name": "objection-bcrypt",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Automatic bcrypt hashing for Objection.js",
   "main": "index.js",
   "scripts": {
