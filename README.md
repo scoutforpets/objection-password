@@ -42,10 +42,10 @@ console.log(person.password);
 
     // fetch the person by email
     const person =
-        await Person.query().where({ email: 'matt@damon.com'});
+        await Person.query().first().where({ email: 'matt@damon.com'});
 
     // verify the password is correct
-    const passwordValid = person.verifyPassword(password);
+    const passwordValid = await person.verifyPassword(password);
 ```
 
 ## Options
