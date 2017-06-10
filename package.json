@@ -1,5 +1,5 @@
 {
-  "name": "objection-bcrypt",
+  "name": "objection-password",
   "version": "0.1.0",
   "description": "Automatic bcrypt hashing for Objection.js",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/scoutforpets/objection-bcrypt.git"
+    "url": "git+https://github.com/scoutforpets/objection-password.git"
   },
   "author": "James Dixon <jim.w.dixon@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/scoutforpets/objection-bcrypt/issues"
+    "url": "https://github.com/scoutforpets/objection-password/issues"
   },
-  "homepage": "https://github.com/scoutforpets/objection-bcrypt#readme",
+  "homepage": "https://github.com/scoutforpets/objection-password#readme",
   "dependencies": {
     "bcrypt": "^1.0.2",
     "sqlite3": "^3.1.8"

@@ -1,14 +1,16 @@
-# Bcrypt for Objection.js [![Build Status](https://travis-ci.org/scoutforpets/objection-bcrypt.svg?branch=master)](https://travis-ci.org/scoutforpets/objection-bcrypt)
+# Automatic Password Hashing for Objection.js [![Build Status](https://travis-ci.org/scoutforpets/objection-password.svg?branch=master)](https://travis-ci.org/scoutforpets/objection-password)
 
-This plugin automatically adds automatic Bcrypt hashing to your [Objection.js](https://github.com/Vincit/objection.js/) models. This makes it super-easy to secure passwords and other sensitive data.
+This plugin automatically adds automatic password hashing to your [Objection.js](https://github.com/Vincit/objection.js/) models. This makes it super-easy to secure passwords and other sensitive data.
+
+Under the hood, the plugin uses [bcrypt](https://en.wikipedia.org/wiki/Bcrypt) for hashing.
 
 ## Installation
 
 ### NPM
-`npm i objection-bcrypt`
+`npm i objection-password`
 
 ### Yarn
-`yarn add objection-bcrypt`
+`yarn add objection-password`
 
 ## Usage
 
@@ -16,11 +18,11 @@ This plugin automatically adds automatic Bcrypt hashing to your [Objection.js](h
 
 ```js
 // import the plugin
-const Bcrypt = require('objection-bcrypt')();
+const Password = require('objection-password')();
 const Model = require('objection').Model;
 
 // mixin the plugin
-class Person extends Bcrypt(Model) {
+class Person extends Password(Model) {
     static get tableName() {
         return 'person';
     }
@@ -56,7 +58,7 @@ These options can be added when instantiating the plugin. For example:
 
 ```js
 // import the plugin
-const Bcrypt = require('objection-bcrypt')({
+const Password = require('objection-password')({
     passwordField: 'hash'
 });
 ```
@@ -68,4 +70,4 @@ Allows an empty password to be set.
 Allows you to override the name of the field to be hashed.
 
 #### `rounds` (defaults to `12`)
-The number of number of Bcrypt rounds to use when hashing the data.
+The number of number of bcrypt rounds to use when hashing the data.
