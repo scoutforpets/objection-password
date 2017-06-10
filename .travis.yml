@@ -5,3 +5,15 @@ node_js:
   - '6'
   - '7'
   - '8'
+
+sudo: required
+
+before_install:
+  - npm install -g node-gyp
+
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-5
