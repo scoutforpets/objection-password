@@ -9,6 +9,7 @@ module.exports = (options) => {
 
     // Provide good defaults for the options if possible.
     options = Object.assign({
+        allowEmptyPassword: false,
         passwordField: 'password',
         rounds: RECOMMENDED_ROUNDS
     }, options);
@@ -60,13 +61,18 @@ module.exports = (options) => {
 
                 if (password) {
 
-                    if (this.constructor.detectBcrypt(password)) {
-                        throw new Error('Bcrypt tried to hash another bcrypt hash');
+                    if (this.constructor.isBcryptHash(password)) {
+                        throw new Error('bcrypt tried to hash another bcrypt hash');
                     }
 
                     return Bcrypt.hash(password, options.rounds).then((hash) => {
                         this[options.passwordField] = hash;
                     });
+                }
+
+                // throw an error if empty passwords aren't allowed
+                if (!options.allowEmptyPassword) {
+                    throw new Error('password must not be empty');
                 }
 
                 return Promise.resolve();
@@ -78,7 +84,7 @@ module.exports = (options) => {
              * @param {String} str A string to be checked
              * @return {Boolean} True if the str seems to be a bcrypt hash
              */
-            static detectBcrypt(str) {
+            static isBcryptHash(str) {
 
                 const protocol = str.split('$');
 
