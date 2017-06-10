@@ -1,4 +1,4 @@
-# Bcrypt for Objection.js
+# Bcrypt for Objection.js [![Build Status](https://travis-ci.org/scoutforpets/objection-bcrypt.svg?branch=master)](https://travis-ci.org/scoutforpets/objection-bcrypt)
 
 This plugin automatically adds automatic Bcrypt hashing to your [Objection.js](https://github.com/Vincit/objection.js/) models. This makes it super-easy to secure passwords and other sensitive data.
 
