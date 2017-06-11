@@ -17,8 +17,7 @@
   },
   "homepage": "https://github.com/scoutforpets/objection-password#readme",
   "dependencies": {
-    "bcrypt": "^1.0.2",
-    "sqlite3": "^3.1.8"
+    "bcrypt": "^1.0.2"
   },
   "devDependencies": {
     "ava": "^0.19.1",
@@ -26,6 +25,7 @@
     "eslint-config-hapi": "^10.0.0",
     "eslint-plugin-hapi": "^4.0.0",
     "knex": "^0.13.0",
-    "objection": "^0.8.2"
+    "objection": "^0.8.2",
+    "sqlite3": "^3.1.8"
   }
 }
