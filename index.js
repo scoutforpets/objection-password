@@ -17,7 +17,7 @@ module.exports = (options) => {
     // the mixin. The factory function is not needed.
     return (Model) => {
 
-        class BcryptModel extends Model {
+        return class extends Model {
 
             $beforeInsert(context) {
 
@@ -94,8 +94,7 @@ module.exports = (options) => {
                     /^\d+$/.test(protocol[2]) &&
                     protocol[3].length === 53;
             }
-        }
+        };
 
-        return BcryptModel;
     };
 };
