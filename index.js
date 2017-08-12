@@ -4,6 +4,8 @@ const Bcrypt = require('bcrypt');
 
 const RECOMMENDED_ROUNDS = 12;
 
+const REGEXP = /^\$2[ayb]\$[0-9]{2}\$[A-Za-z0-9./]{53}$/;
+
 module.exports = (options) => {
 
     // Provide good defaults for the options if possible.
@@ -84,15 +86,7 @@ module.exports = (options) => {
              * @return {Boolean} True if the str seems to be a bcrypt hash
              */
             static isBcryptHash(str) {
-
-                const protocol = str.split('$');
-
-                // Ex $2a$12$K2CtDP7zSGOKgjXjxD9SYey9mSZ9Udio9C95K6wCKZewSP9oBWyPO
-                return protocol.length === 4 &&
-                    protocol[0] === '' &&
-                    ['2a', '2b', '2y'].indexOf(protocol[1]) > -1 &&
-                    /^\d+$/.test(protocol[2]) &&
-                    protocol[3].length === 53;
+                return REGEXP.test(str);
             }
         };
 
