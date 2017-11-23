@@ -29,9 +29,9 @@ module.exports = (options) => {
                 });
             }
 
-            $beforeUpdate(opt, context) {
+            $beforeUpdate(queryOptions, context) {
 
-                const maybePromise = super.$beforeUpdate(context);
+                const maybePromise = super.$beforeUpdate(queryOptions, context);
 
                 return Promise.resolve(maybePromise).then(() => {
                     // hash the password
