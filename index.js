@@ -24,6 +24,7 @@ module.exports = (options) => {
                 const maybePromise = super.$beforeInsert(context);
 
                 return Promise.resolve(maybePromise).then(() => {
+                    if (opt.patch && this[options.passwordField] === undefined) return;
                     // hash the password
                     return this.generateHash();
                 });
