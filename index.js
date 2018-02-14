@@ -24,7 +24,6 @@ module.exports = (options) => {
                 const maybePromise = super.$beforeInsert(context);
 
                 return Promise.resolve(maybePromise).then(() => {
-                    if (opt.patch && this[options.passwordField] === undefined) return;
                     // hash the password
                     return this.generateHash();
                 });
@@ -35,6 +34,7 @@ module.exports = (options) => {
                 const maybePromise = super.$beforeUpdate(queryOptions, context);
 
                 return Promise.resolve(maybePromise).then(() => {
+                    if (queryOptions.patch && this[options.passwordField] === undefined) return;
                     // hash the password
                     return this.generateHash();
                 });
