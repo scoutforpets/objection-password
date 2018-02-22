@@ -42,8 +42,8 @@ module.exports = (options) => {
 
             /**
              * Compares a password to a Bcrypt hash
-             * @param  {[type]} password [description]
-             * @return {[type]}          [description]
+             * @param  {String}             password  the password...
+             * @return {Promise.<Boolean>}            whether or not the password was verified
              */
             verifyPassword(password) {
                 return Bcrypt.compare(password, this[options.passwordField]);
@@ -51,9 +51,7 @@ module.exports = (options) => {
 
             /**
              * Generates a Bcrypt hash
-             * @param  {String}  password         the password...
-             * @param  {Number}  rounds           the number of rounds to use when hashing (default = 12)
-             * @return {String}                   returns the hash or null
+             * @return {Promise.<(String|void)>}  returns the hash or null
              */
             generateHash() {
 
