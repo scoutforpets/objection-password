@@ -52,6 +52,15 @@ test('creates new hash when updating password', async (t) => {
     t.true(await updatedDog.verifyPassword(updated));
 });
 
+test('ignores hashing password field when patching a record where password isn\'t updated', async (t) => {
+    const dog = await Dog.query().insert({ name: 'JJ', password: 'Turtle123!' });
+    
+    // update name only
+    await dog.$query().patchAndFetchById(dog.id, { name: 'Jumbo Jet' });
+    
+    t.pass();
+});
+
 
 test('do not allow empty password', async (t) => {
     const password = '';
