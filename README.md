@@ -39,15 +39,15 @@ console.log(person.password);
 
 ### Verifying the data
 ```js
-    // the password to verify
-    const password = 'q1w2e3r4';
+// the password to verify
+const password = 'q1w2e3r4';
 
-    // fetch the person by email
-    const person =
-        await Person.query().first().where({ email: 'matt@damon.com'});
+// fetch the person by email
+const person =
+    await Person.query().first().where({ email: 'matt@damon.com'});
 
-    // verify the password is correct
-    const passwordValid = await person.verifyPassword(password);
+// verify the password is correct
+const passwordValid = await person.verifyPassword(password);
 ```
 
 ## Options
