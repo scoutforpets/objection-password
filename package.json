@@ -20,12 +20,12 @@
     "bcrypt": "^1.0.2"
   },
   "devDependencies": {
-    "ava": "^0.21.0",
+    "ava": "^0.25.0",
     "eslint": "^4.4.1",
-    "eslint-config-hapi": "^10.0.0",
+    "eslint-config-hapi": "^11.1.0",
     "eslint-plugin-hapi": "^4.0.0",
-    "knex": "^0.13.0",
-    "objection": "^0.8.6",
+    "knex": "^0.14.4",
+    "objection": "^1.0.0",
     "sqlite3": "^3.1.9"
   }
 }
