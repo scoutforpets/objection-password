@@ -1,7 +1,6 @@
-import { Model, ModelClass, Page, QueryContext } from 'objection';
+import { Model, Page, QueryContext } from 'objection';
 
 declare module 'objection-password' {
-
   class PasswordQueryBuilder<M extends Model, R = M[]> {
     ArrayQueryBuilderType: PasswordQueryBuilder<M, M[]>;
     SingleQueryBuilderType: PasswordQueryBuilder<M, M>;

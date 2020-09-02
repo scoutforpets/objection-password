@@ -1,10 +1,10 @@
 {
   "name": "objection-password",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Automatic bcrypt hashing for Objection.js",
   "main": "index.js",
   "scripts": {
-    "test": "ava"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,13 +17,13 @@
   },
   "homepage": "https://github.com/scoutforpets/objection-password#readme",
   "dependencies": {
-    "bcrypt": "^3.0.0"
+    "bcrypt": "^5.0.0"
   },
   "devDependencies": {
-    "ava": "^0.25.0",
-    "knex": "^0.14.4",
-    "objection": "^1.0.0",
-    "sqlite3": "^4.0.0",
-    "standard": "^12.0.1"
+    "jest": "^26.4.2",
+    "knex": "^0.21.5",
+    "objection": "^2.2.3",
+    "objection-transactional-tests": "^0.2.0",
+    "sqlite3": "^5.0.0"
   }
 }
