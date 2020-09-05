@@ -19,7 +19,7 @@ Under the hood, the plugin uses [bcrypt](https://en.wikipedia.org/wiki/Bcrypt) f
 | < 12           | 2.x               |
 | >= 12          | >= 3.x            |
 
-Version `3.x` contains `bcrypt 5.x` which contains important security updates but is only compatible with Node 12+. It's also tested against Objection 2.x.
+If you're using Node 12 or greater, use version `3.x` of the plugin as it contains `bcrypt 5.x`, which contains important security updates but is only compatible with Node 12+. It's also tested against Objection 2.x.
 
 ## Usage
 
