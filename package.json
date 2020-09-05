@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/scoutforpets/objection-password#readme",
   "dependencies": {
-    "bcrypt": "^3.0.0"
+    "bcrypt": "^5.0.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",
