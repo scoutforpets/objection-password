@@ -3,6 +3,9 @@
   "version": "2.0.0",
   "description": "Automatic bcrypt hashing for Objection.js",
   "main": "index.js",
+  "engines": {
+    "node": "< 12.0.0"
+  },
   "scripts": {
     "test": "ava"
   },
