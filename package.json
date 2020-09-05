@@ -3,9 +3,6 @@
   "version": "3.0.0",
   "description": "Automatic bcrypt hashing for Objection.js",
   "main": "index.js",
-  "engines": {
-    "node": "< 12.0.0"
-  },
   "scripts": {
     "test": "jest"
   },
