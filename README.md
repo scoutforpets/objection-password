@@ -79,4 +79,4 @@ Allows an empty password to be set.
 Allows you to override the name of the field to be hashed.
 
 #### `rounds` (defaults to `12`)
-The number of number of bcrypt rounds to use when hashing the data.
+The number of bcrypt rounds to use when hashing the data.
