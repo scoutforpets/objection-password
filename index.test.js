@@ -1,21 +1,7 @@
 /* eslint-env jest */
 const bcrypt = require('bcrypt')
-const { transactionPerTest } = require('objection-transactional-tests')
 const { Model } = require('objection')
-const Knex = require('knex')
 const objectionPassword = require('./index')
-
-// Set up knex
-const knex = Knex({
-  client: 'sqlite3',
-  connection: {
-    filename: ':memory:'
-  },
-  useNullAsDefault: true
-})
-
-// Bind knex instance to objection
-Model.knex(knex)
 
 const ObjectionPassword = objectionPassword() // Mixin with default options.
 
@@ -32,12 +18,6 @@ beforeAll(async () => {
     table.string('name')
     table.string('password')
   })
-  transactionPerTest()
-})
-
-afterAll(async () => {
-  await knex.schema.dropTable('sample_model')
-  knex.destroy()
 })
 
 describe('$beforeInsert', () => {
