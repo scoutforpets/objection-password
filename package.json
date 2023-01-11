@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "jest": "^26.4.2",
-    "knex": "^0.21.5",
+    "knex": "^2.4.0",
     "objection": "^2.2.3",
     "objection-transactional-tests": "^0.2.0",
     "sqlite3": "^5.0.0",
